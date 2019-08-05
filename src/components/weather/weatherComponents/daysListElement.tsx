@@ -1,7 +1,7 @@
 import * as React from 'react';
 import styled from 'styled-components';
 import {ListDivider} from '@rmwc/list'
-import cloudy from './Assets/cloudy.png'
+import cloudy from '../Assets/cloudy.png'
 
 
 interface DayListItemData {

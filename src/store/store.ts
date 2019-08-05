@@ -1,9 +1,8 @@
 import {observable} from 'mobx';
 
 export class Store {
-   
-    @observable introTxt: string = "Personal starter pack"
 
+    @observable cityName: string = "New York, NY"
 }
 
 let store = new Store();

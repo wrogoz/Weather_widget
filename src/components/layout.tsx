@@ -2,18 +2,20 @@ import React from 'react';
 import styled from 'styled-components';
 import {observer} from 'mobx-react';
 import {Weather} from './weather/weather';
+import store,{Store} from '../store/store';
 
 
-interface prepper{
-  store:string;
+interface LayoutProps{
+  store:Store
 }
+
 @observer
-export class Layout extends React.Component<prepper,{}>{
+export class Layout extends React.Component<LayoutProps,{}>{
   
   render(){
     return(
       <MainPage>
-        <Weather/>
+        <Weather store={store}/>
       </MainPage>
     )
   }

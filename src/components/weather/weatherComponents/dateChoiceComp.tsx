@@ -1,6 +1,6 @@
 import * as React from 'react';
 import styled from 'styled-components';
-import cloudy from './Assets/cloudy.png'
+import cloudy from '../Assets/cloudy.png'
 
 
 export class DateChoiceComp extends React.Component<{},{}>{

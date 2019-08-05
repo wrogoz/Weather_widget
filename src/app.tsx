@@ -9,7 +9,7 @@ export class App extends React.Component<{}, {}> {
     render() {
         return (
             <Provider store={store}>
-                <Layout store={store.introTxt}/>
+                <Layout store={store}/>
             </Provider>
         )
     }

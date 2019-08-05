@@ -1,19 +1,39 @@
 import * as React from 'react';
 import styled from 'styled-components';
 import {SimpleMenu,MenuItem} from '@rmwc/menu';
-import {DaysList} from './daysList';
-import {DateChoiceComp} from './dateChoiceComp';
+import {DaysList} from './weatherComponents/daysList';
+import {DateChoiceComp} from './weatherComponents/dateChoiceComp';
+import {Store} from '../../store/store';
+import {observer} from 'mobx-react';
 
-export class Weather extends React.Component<{},{}>{
+
+
+interface WheaterProps {
+    store:Store
+}
+
+
+@observer
+export class Weather extends React.Component<WheaterProps,{}>{
+
+   
+
+    selectCity = (event:any) =>{
+        
+        this.props.store.cityName=event;
+        
+    }
+
     render(){
+        
         return(
             <WeatherContainer>
                 <TopBox>
                     
-                        <SimpleMenu handle={<CityName>New York, NY</CityName>}>
-                        <MenuItem>Katowice</MenuItem>
-                        <MenuItem>Sosnowiec</MenuItem>
-                        <MenuItem>Londyn</MenuItem>
+                        <SimpleMenu handle={<CityName>{this.props.store.cityName}</CityName>}>
+                        <MenuItem onClick={this.selectCity.bind(this, 'Katowice')}  >Katowice</MenuItem>
+                        <MenuItem onClick={this.selectCity.bind(this, 'Sosnowiec')}  >Sosnowiec</MenuItem>
+                        <MenuItem onClick={this.selectCity.bind(this, 'London')}  >Londyn</MenuItem>
                         </SimpleMenu>
 
                     <Date>Tuesday April 15th</Date>
