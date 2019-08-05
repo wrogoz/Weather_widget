@@ -86,5 +86,7 @@ const NameLi = styled.li`
 `
 const DataLi = styled.span`
     color:#666;
+    padding-left: 4px;
+    line-height:20px;
 `
 

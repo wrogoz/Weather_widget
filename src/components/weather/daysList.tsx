@@ -1,43 +1,24 @@
 import * as React from 'react';
-import styled from 'styled-components';
-import {ListDivider,List, ListItem} from '@rmwc/list'
-import cloudy from './Assets/cloudy.png'
+
+import {List} from '@rmwc/list';
+
+import {DaysListElement} from './daysListElement';
+
 
 export class DaysList extends React.Component<{},{}>{
     render(){
         return(
             <List>
-            <ListDivider/>
-            <StyledDaysList>
-                <InlineEl>
-                    Today 
-                </InlineEl>
-                
-                <InlineEl>
-                <img src={cloudy} alt="cloudy"/>
-                </InlineEl>
-
-                <InlineEl>
-                    temp
-                </InlineEl>
-                <InlineEl>
-                    <p>Pollen</p>
-                    <p>36</p>
-                </InlineEl>
-                
-            </StyledDaysList>
-            <ListDivider/>
+           <DaysListElement dayName="Today"/>
+           <DaysListElement dayName="Tuesday"/>
+           <DaysListElement dayName="Wendesday"/>
+           <DaysListElement dayName="Thursday"/>
+           <DaysListElement dayName="Friday"/>
+           <DaysListElement dayName="Saturday"/>
+           <DaysListElement dayName="Sunday"/>
             
         </List>
         )
     }
 }
 
-const StyledDaysList = styled(ListItem)`
-  
-    height:10vh;
-`
-const InlineEl = styled.div`
-    display:inline-block;
-    width:25%;
-`
