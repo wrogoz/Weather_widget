@@ -23,6 +23,7 @@ const MainPage=styled.div`
   height:100vh;
   width:100vw;
   background-color:skyblue;
+  font-family:'Roboto', sans-serif;
   
 `
 

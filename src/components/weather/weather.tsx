@@ -1,6 +1,8 @@
 import * as React from 'react';
 import styled from 'styled-components';
 
+import {DaysList} from './daysList';
+import {DateChoiceComp} from './dateChoiceComp';
 
 export class Weather extends React.Component<{},{}>{
     render(){
@@ -8,28 +10,12 @@ export class Weather extends React.Component<{},{}>{
             <WeatherContainer>
                 <TopBox>
                     <CityName>New York, NY</CityName>
-                    <p>Tuesday April 15th</p>
-                    <p>Overcast</p>
+                    <Date>Tuesday April 15th</Date>
+                    <Date>Overcast</Date>
                 </TopBox>
 
-                <SelectedDate>
-                    <SelectedDateCol1>
-                    img 58
-                    </SelectedDateCol1>
-
-                    <SelectedDateCol2>
-                        <ul>
-                            <li>1</li>
-                            <li>2</li>
-                            <li>3</li>
-                            <li>4</li>
-                        </ul>
-                    </SelectedDateCol2>
-
-                </SelectedDate>
-                <div>
-                    reszta pogody
-                </div>
+                <DateChoiceComp/>
+               <DaysList/>
             </WeatherContainer>
         )
     }
@@ -47,18 +33,11 @@ const TopBox = styled.div`
     padding-left:5%;
 `
 const CityName = styled.div`
-    font-size:32px;
-    
-    font-family: 'Roboto', sans-serif;
-`
+    font-size:36px;
 
-const SelectedDate = styled.div`
-    display:flex;
 `
-const SelectedDateCol1 = styled.div`
-    display:flex;
-    width:50%;
-`
-const SelectedDateCol2 = styled.div`
+const Date = styled.div`
     
+    color:#666;
+    font-size:14px;
 `
