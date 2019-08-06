@@ -5,7 +5,7 @@ import {DaysList} from './weatherComponents/daysList';
 import {DateChoiceComp} from './weatherComponents/dateChoiceComp';
 import {Store} from '../../store/store';
 import {observer} from 'mobx-react';
-
+import axios from 'axios';
 
 
 interface WheaterProps {
@@ -20,20 +20,44 @@ export class Weather extends React.Component<WheaterProps,{}>{
 
     selectCity = (event:any) =>{
         
-        this.props.store.cityName=event;
+        this.props.store.city=event;
         
     }
 
+
+    componentDidMount(){
+
+         // Api GET city list 
+
+         axios.get('https://dev-weather-api.azurewebsites.net/api/city')
+            .then( (res:any) => {
+         
+     
+                this.props.store.cityNames=res.data
+                this.props.store.menuItems = this.props.store.cityNames.map((el:any,id:number)=>{
+                return (
+                    <MenuItem onClick={this.selectCity.bind(this, `${el.name}`)} key={id} >{el.name}</MenuItem>
+                )
+                })
+            })
+            
+            .catch( (error) => {
+           
+            console.log(error);
+            })
+         
+    }
+    
     render(){
         
         return(
+           
             <WeatherContainer>
                 <TopBox>
+               
                     
-                        <SimpleMenu handle={<CityName>{this.props.store.cityName}</CityName>}>
-                        <MenuItem onClick={this.selectCity.bind(this, 'Katowice')}  >Katowice</MenuItem>
-                        <MenuItem onClick={this.selectCity.bind(this, 'Sosnowiec')}  >Sosnowiec</MenuItem>
-                        <MenuItem onClick={this.selectCity.bind(this, 'London')}  >Londyn</MenuItem>
+                        <SimpleMenu handle={<CityName>{this.props.store.city}</CityName>}>
+                            {this.props.store.menuItems}
                         </SimpleMenu>
 
                     <Date>Tuesday April 15th</Date>
