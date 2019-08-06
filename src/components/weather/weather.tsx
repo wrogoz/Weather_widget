@@ -3,7 +3,7 @@ import styled from 'styled-components';
 import {SimpleMenu,MenuItem} from '@rmwc/menu';
 import {DaysList} from './weatherComponents/daysList';
 import {DateChoiceComp} from './weatherComponents/dateChoiceComp';
-import {Store} from '../../store/store';
+import store,{Store} from '../../store/store';
 import {observer} from 'mobx-react';
 import axios from 'axios';
 
@@ -21,6 +21,35 @@ export class Weather extends React.Component<WheaterProps,{}>{
     selectCity = (event:any) =>{
         
         this.props.store.city=event;
+       
+        for (let i=0; i<this.props.store.cityNames.length; i++){
+
+            if(this.props.store.cityNames[i].name.indexOf(event)!==-1){
+                
+                axios.get(`https://dev-weather-api.azurewebsites.net/api/city/${this.props.store.cityNames[i].id}/weather?date=${this.props.store.selectedDate}`)
+                .then( (res:any) => {
+                    
+             this.props.store.temperature = res.data[0].temperature;
+             this.props.store.precipitation = res.data[0].precipitation;       
+             this.props.store.humidity = res.data[0].humidity;
+             this.props.store.speed= res.data[0].windInfo.speed;
+             this.props.store.direction = res.data[0].windInfo.direction;
+             this.props.store.pollenCount = res.data[0].pollenCount;      
+                })
+                
+                
+                .catch( (error) => {
+               
+                console.log(error);
+                })
+            }
+        }
+        
+        
+     
+       
+
+
         
     }
 
@@ -34,12 +63,15 @@ export class Weather extends React.Component<WheaterProps,{}>{
          
      
                 this.props.store.cityNames=res.data
+                
                 this.props.store.menuItems = this.props.store.cityNames.map((el:any,id:number)=>{
                 return (
                     <MenuItem onClick={this.selectCity.bind(this, `${el.name}`)} key={id} >{el.name}</MenuItem>
                 )
                 })
+               
             })
+            
             
             .catch( (error) => {
            
@@ -49,7 +81,7 @@ export class Weather extends React.Component<WheaterProps,{}>{
     }
     
     render(){
-        
+       
         return(
            
             <WeatherContainer>
@@ -64,7 +96,7 @@ export class Weather extends React.Component<WheaterProps,{}>{
                     <Date>Overcast</Date>
                 </TopBox>
 
-                <DateChoiceComp/>
+                <DateChoiceComp store={store}/>
                <DaysList/>
             </WeatherContainer>
         )

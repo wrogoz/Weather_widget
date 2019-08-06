@@ -14,8 +14,7 @@ export class DaysList extends React.Component<{},{}>{
            <DaysListElement dayName="Wendesday"/>
            <DaysListElement dayName="Thursday"/>
            <DaysListElement dayName="Friday"/>
-           <DaysListElement dayName="Saturday"/>
-           <DaysListElement dayName="Sunday"/>
+
             
         </List>
         )

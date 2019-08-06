@@ -1,26 +1,32 @@
 import * as React from 'react';
 import styled from 'styled-components';
-import cloudy from '../Assets/cloudy.png'
+import cloudy from '../Assets/cloudy.png';
+import {Store } from '../../../store/store';
+import {observer} from 'mobx-react';
+interface DateChoiceProps{
+    store:Store
+}
 
 
-export class DateChoiceComp extends React.Component<{},{}>{
+@observer
+export class DateChoiceComp extends React.Component<DateChoiceProps,{}>{
     render(){
         return(
             <SelectedDate>
 <SelectedDateCol1>
 <Col1Img src={cloudy} alt="cloudy"/>
 <Col1Temp>
-<Col1TempVal>58</Col1TempVal>
+<Col1TempVal>{this.props.store.temperature}</Col1TempVal>
 <Styledsup><sup>o</sup>F</Styledsup>
 </Col1Temp> 
 </SelectedDateCol1>
 
 <SelectedDateCol2>
     <Col2Data>
-        <NameLi>Precipitation:<DataLi>100%</DataLi> </NameLi> 
-        <NameLi>Humidity:<DataLi>97%</DataLi> </NameLi> 
-        <NameLi>Wind:<DataLi> 4mph SW</DataLi> </NameLi> 
-        <NameLi>Pollen Count:<DataLi>36</DataLi> </NameLi> 
+        <NameLi>Precipitation:<DataLi>{this.props.store.precipitation}%</DataLi> </NameLi> 
+        <NameLi>Humidity:<DataLi>{this.props.store.humidity}%</DataLi> </NameLi> 
+        <NameLi>Wind:<DataLi> {this.props.store.speed} {this.props.store.direction} </DataLi> </NameLi> 
+        <NameLi>Pollen Count:<DataLi>{this.props.store.pollenCount}</DataLi> </NameLi> 
     </Col2Data>
 </SelectedDateCol2>
 
