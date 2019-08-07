@@ -6,6 +6,8 @@ import {DateChoiceComp} from './weatherComponents/dateChoiceComp';
 import store,{Store} from '../../store/store';
 import {observer} from 'mobx-react';
 import axios from 'axios';
+import  moment from 'moment';
+
 
 
 interface WeatherProps {
@@ -30,9 +32,9 @@ export class Weather extends React.Component<WeatherProps,{}>{
                 .then( (res:any) => {
                     this.props.store.api=(res.data);
                     
-                    this.props.store.days[1]=(this.props.store.api[1].date);
+                    this.props.store.days[1]=moment(this.props.store.api[1].date).format("dddd");
                   
-                  console.log(this.props.store.days[1])
+                  
                     
                 })
            

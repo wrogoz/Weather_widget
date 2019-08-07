@@ -15,10 +15,10 @@ export class DaysList extends React.Component<DayListProps,{}>{
         
         return(
             <List>
-           <DaysListElement dayName={this.props.store.days[0]}/>
            <DaysListElement dayName={this.props.store.days[1]}/>
            <DaysListElement dayName={this.props.store.days[2]}/>
            <DaysListElement dayName={this.props.store.days[3]}/>
+           <DaysListElement dayName={this.props.store.days[0]}/>
           
 
             
