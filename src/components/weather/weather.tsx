@@ -8,17 +8,17 @@ import {observer} from 'mobx-react';
 import axios from 'axios';
 
 
-interface WheaterProps {
+interface WeatherProps {
     store:Store
 }
 
 
 @observer
-export class Weather extends React.Component<WheaterProps,{}>{
+export class Weather extends React.Component<WeatherProps,{}>{
 
    
 
-    selectCity = (event:any) =>{
+    selectCity(event:any) {
         
         this.props.store.city=event;
        
@@ -28,14 +28,14 @@ export class Weather extends React.Component<WheaterProps,{}>{
                 
                 axios.get(`https://dev-weather-api.azurewebsites.net/api/city/${this.props.store.cityNames[i].id}/weather?date=${this.props.store.selectedDate}`)
                 .then( (res:any) => {
+                    this.props.store.api=(res.data);
                     
-             this.props.store.temperature = res.data[0].temperature;
-             this.props.store.precipitation = res.data[0].precipitation;       
-             this.props.store.humidity = res.data[0].humidity;
-             this.props.store.speed= res.data[0].windInfo.speed;
-             this.props.store.direction = res.data[0].windInfo.direction;
-             this.props.store.pollenCount = res.data[0].pollenCount;      
+                    this.props.store.days[1]=(this.props.store.api[1].date);
+                  
+                  console.log(this.props.store.days[1])
+                    
                 })
+           
                 
                 
                 .catch( (error) => {
@@ -44,15 +44,7 @@ export class Weather extends React.Component<WheaterProps,{}>{
                 })
             }
         }
-        
-        
-     
-       
-
-
-        
     }
-
 
     componentDidMount(){
 
@@ -60,44 +52,32 @@ export class Weather extends React.Component<WheaterProps,{}>{
 
          axios.get('https://dev-weather-api.azurewebsites.net/api/city')
             .then( (res:any) => {
-         
-     
-                this.props.store.cityNames=res.data
-                
+        
+                this.props.store.cityNames=res.data 
                 this.props.store.menuItems = this.props.store.cityNames.map((el:any,id:number)=>{
                 return (
                     <MenuItem onClick={this.selectCity.bind(this, `${el.name}`)} key={id} >{el.name}</MenuItem>
                 )
                 })
-               
             })
-            
-            
             .catch( (error) => {
-           
             console.log(error);
             })
          
     }
-    
     render(){
        
         return(
-           
             <WeatherContainer>
                 <TopBox>
-               
-                    
                         <SimpleMenu handle={<CityName>{this.props.store.city}</CityName>}>
                             {this.props.store.menuItems}
                         </SimpleMenu>
-
                     <Date>Tuesday April 15th</Date>
                     <Date>Overcast</Date>
                 </TopBox>
-
                 <DateChoiceComp store={store}/>
-               <DaysList/>
+               <DaysList store={store}/>
             </WeatherContainer>
         )
     }

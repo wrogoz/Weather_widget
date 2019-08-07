@@ -13,22 +13,22 @@ export class DateChoiceComp extends React.Component<DateChoiceProps,{}>{
     render(){
         return(
             <SelectedDate>
-<SelectedDateCol1>
-<Col1Img src={cloudy} alt="cloudy"/>
-<Col1Temp>
-<Col1TempVal>{this.props.store.temperature}</Col1TempVal>
-<Styledsup><sup>o</sup>F</Styledsup>
-</Col1Temp> 
-</SelectedDateCol1>
+                <SelectedDateCol1>
+                    <Col1Img src={cloudy} alt="cloudy"/>
+                    <Col1Temp>
+                    <Col1TempVal>{this.props.store.api[0].temperature}</Col1TempVal>
+                    <Styledsup><sup>o</sup>F</Styledsup>
+                    </Col1Temp> 
+                </SelectedDateCol1>
 
-<SelectedDateCol2>
-    <Col2Data>
-        <NameLi>Precipitation:<DataLi>{this.props.store.precipitation}%</DataLi> </NameLi> 
-        <NameLi>Humidity:<DataLi>{this.props.store.humidity}%</DataLi> </NameLi> 
-        <NameLi>Wind:<DataLi> {this.props.store.speed} {this.props.store.direction} </DataLi> </NameLi> 
-        <NameLi>Pollen Count:<DataLi>{this.props.store.pollenCount}</DataLi> </NameLi> 
-    </Col2Data>
-</SelectedDateCol2>
+                <SelectedDateCol2>
+                    <Col2Data>
+                        <NameLi>Precipitation:<DataLi>{this.props.store.api[0].precipitation}%</DataLi> </NameLi> 
+                        <NameLi>Humidity:<DataLi>{this.props.store.api[0].humidity}%</DataLi> </NameLi> 
+                        <NameLi>Wind:<DataLi> {this.props.store.api[0].speed} {this.props.store.api[0].direction} </DataLi> </NameLi> 
+                        <NameLi>Pollen Count:<DataLi>{this.props.store.api[0].pollenCount}</DataLi> </NameLi> 
+                    </Col2Data>
+                </SelectedDateCol2>
 
 </SelectedDate>
         )
