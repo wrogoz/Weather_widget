@@ -10,19 +10,23 @@ interface DayListProps{
 };
 @observer
 export class DaysList extends React.Component<DayListProps,{}>{
-    render(){
 
+    
+    render(){
+        const daysListItems = this.props.store.days.map((el:any,key:number)=>{
+            if(key>0){
+            return (
+                <DaysListElement dayName={el} key={key}/>
+            )}else{
+                return null
+            }
+        });
+        
         
         return(
             <List>
-           <DaysListElement dayName={this.props.store.days[1]}/>
-           <DaysListElement dayName={this.props.store.days[2]}/>
-           <DaysListElement dayName={this.props.store.days[3]}/>
-           <DaysListElement dayName={this.props.store.days[0]}/>
-          
-
-            
-        </List>
+           {daysListItems}
+            </List>
         )
     }
 }

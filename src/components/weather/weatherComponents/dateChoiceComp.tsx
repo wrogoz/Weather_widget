@@ -3,21 +3,23 @@ import styled from 'styled-components';
 import cloudy from '../Assets/cloudy.png';
 import {Store } from '../../../store/store';
 import {observer} from 'mobx-react';
+
+
 interface DateChoiceProps{
     store:Store
 }
-
 
 @observer
 export class DateChoiceComp extends React.Component<DateChoiceProps,{}>{
     render(){
         return(
             <SelectedDate>
+
                 <SelectedDateCol1>
                     <Col1Img src={cloudy} alt="cloudy"/>
                     <Col1Temp>
-                    <Col1TempVal>{this.props.store.api[0].temperature}</Col1TempVal>
-                    <Styledsup><sup>o</sup>F</Styledsup>
+                        <Col1TempVal>{this.props.store.api[0].temperature}</Col1TempVal>
+                        <Styledsup><sup>o</sup>F</Styledsup>
                     </Col1Temp> 
                 </SelectedDateCol1>
 
@@ -30,7 +32,7 @@ export class DateChoiceComp extends React.Component<DateChoiceProps,{}>{
                     </Col2Data>
                 </SelectedDateCol2>
 
-</SelectedDate>
+            </SelectedDate>
         )
     }
 }
@@ -38,12 +40,10 @@ export class DateChoiceComp extends React.Component<DateChoiceProps,{}>{
 
 const SelectedDate = styled.div`
     display:flex;
-  
    
 `
 const SelectedDateCol1 = styled.div`
     display:flex;
-  
     padding: 0 0 0 12px;
     margin:top:10%;
     
@@ -72,7 +72,6 @@ const Styledsup = styled.sup`
    
 `
 const SelectedDateCol2 = styled.div`
-  
     margin:top:10%;
     width:50%;
     margin:0 auto;
@@ -84,8 +83,6 @@ const Col2Data = styled.ul`
     font-size:14px;
     padding-left:0;
     margin:0;
-    
-    
 `
 const NameLi = styled.li`
     color:#aaa;

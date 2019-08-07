@@ -32,16 +32,14 @@ export class Weather extends React.Component<WeatherProps,{}>{
                 .then( (res:any) => {
                     this.props.store.api=(res.data);
                     
-                    this.props.store.days[1]=moment(this.props.store.api[1].date).format("dddd");
-                  
-                  
-                    
+                    for(let i =0; i<this.props.store.days.length; i++){
+                        this.props.store.days[i]=moment(this.props.store.api[i].date).format("dddd");
+                        
+                    }
+
+                
                 })
-           
-                
-                
                 .catch( (error) => {
-               
                 console.log(error);
                 })
             }
