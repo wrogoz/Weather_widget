@@ -1,7 +1,7 @@
 import {observable} from 'mobx';
 
 export class Store {
-    @observable api:any=[{date:"monday"},{date:"Tuesday"},{date:"Wendesday"},{date:"Thursday"},{date:"Friday"}];
+    @observable api:any=[''];
     @observable cityNames: any = [''];
     @observable menuItems:any = [];
     @observable city:string = 'Choose city';
@@ -9,16 +9,14 @@ export class Store {
     @observable days:any = ["monday","Tuesday", "wendesday","Thursday","Friday"]
 //---------------------------top box data------------------------------------
   
-    @observable date:string[] | null=["2019-07-26T00:00:00"]
+    @observable date:string[] | null=["2019-07-26"]
     @observable temperature:number[] =[];
     @observable pollenCount:number[]  =[];
+   //windInfo	
+   @observable speed:number[]  =	[];
+   @observable direction:string[] =[];
 //---------------------------------------------------
-    @observable precipitation:number[]  | null=null;
-    @observable humidity:number[]  | null=null;
-    //windInfo	
-    @observable speed:number[]  | null=	null;
-    @observable direction:string[] | null=null;
-   
+  
     @observable type:string[]| null=["RainLight"];
     //-------------------------------------------------------------------------/
 }

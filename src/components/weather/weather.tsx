@@ -36,10 +36,15 @@ export class Weather extends React.Component<WeatherProps,{}>{
                     this.props.store.days=[];
                     this.props.store.temperature=[];
                     this.props.store.pollenCount=[];
+                    this.props.store.speed=	[];
+                    this.props.store.direction=	[];
+                   
                     for(let i =0; i<this.props.store.api.length; i++){
                         this.props.store.days.push(moment(this.props.store.api[i].date).format("dddd"));
                         this.props.store.temperature.push(this.props.store.api[i].temperature);
                         this.props.store.pollenCount.push(this.props.store.api[i].pollenCount);
+                        this.props.store.speed.push(this.props.store.api[i].windInfo.speed);
+                        this.props.store.direction.push(this.props.store.api[i].windInfo.direction);
                     }
                
                   
@@ -83,7 +88,7 @@ export class Weather extends React.Component<WeatherProps,{}>{
                         <SimpleMenu handle={<CityName>{this.props.store.city}</CityName>}>
                             {this.props.store.menuItems}
                         </SimpleMenu>
-                    <Date>Tuesday April 15th</Date>
+                    <Date>{this.props.store.date}</Date>
                     <Date>Overcast</Date>
                 </TopBox>
                 <DateChoiceComp store={store}/>

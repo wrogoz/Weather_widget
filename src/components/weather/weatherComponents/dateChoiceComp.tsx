@@ -27,7 +27,7 @@ export class DateChoiceComp extends React.Component<DateChoiceProps,{}>{
                     <Col2Data>
                         <NameLi>Precipitation:<DataLi>{this.props.store.api[0].precipitation}%</DataLi> </NameLi> 
                         <NameLi>Humidity:<DataLi>{this.props.store.api[0].humidity}%</DataLi> </NameLi> 
-                        <NameLi>Wind:<DataLi> {this.props.store.api[0].speed} {this.props.store.api[0].direction} </DataLi> </NameLi> 
+                        <NameLi>Wind:<DataLi> {this.props.store.speed.slice()[0]} {this.props.store.direction.slice()[0]} </DataLi> </NameLi> 
                         <NameLi>Pollen Count:<DataLi>{this.props.store.api[0].pollenCount}</DataLi> </NameLi> 
                     </Col2Data>
                 </SelectedDateCol2>
