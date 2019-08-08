@@ -23,7 +23,7 @@ export class Weather extends React.Component<WeatherProps,{}>{
     selectCity(event:any) {
         
         this.props.store.city=event;
-       
+        
         for (let i=0; i<this.props.store.cityNames.length; i++){
 
             if(this.props.store.cityNames[i].name.indexOf(event)!==-1){
@@ -31,11 +31,20 @@ export class Weather extends React.Component<WeatherProps,{}>{
                 axios.get(`https://dev-weather-api.azurewebsites.net/api/city/${this.props.store.cityNames[i].id}/weather?date=${this.props.store.selectedDate}`)
                 .then( (res:any) => {
                     this.props.store.api=(res.data);
-                    
-                    for(let i =0; i<this.props.store.days.length; i++){
-                        this.props.store.days[i]=moment(this.props.store.api[i].date).format("dddd");
-                        
+
+                    this.props.store.days=[];
+                    this.props.store.temperature=[];
+                    this.props.store.pollen=[];
+                    for(let i =0; i<this.props.store.api.length; i++){
+                        this.props.store.days.push(moment(this.props.store.api[i].date).format("dddd"));
+                        this.props.store.temperature.push(this.props.store.api[i].temperature);
+                        this.props.store.pollen.push(this.props.store.api[i].pollenCount);
                     }
+               
+                  
+                    
+
+
 
                 
                 })

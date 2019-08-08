@@ -2,12 +2,15 @@ import * as React from 'react';
 import styled from 'styled-components';
 import {ListDivider} from '@rmwc/list'
 import cloudy from '../Assets/cloudy.png'
+import { observer } from 'mobx-react';
 
 
 interface DayListItemData {
     dayName:String
+    celcius:Number
+    fahrenheit:Number
 }
-
+@observer
 export class DaysListElement extends React.Component<DayListItemData,{}>{
     render(){
         return(
@@ -23,8 +26,8 @@ export class DaysListElement extends React.Component<DayListItemData,{}>{
                         </InlineEl>
 
                         <InlineEl>
-                        <StyledP>68 <sup>0</sup></StyledP>
-                            <StyledP>36 <sup>0</sup></StyledP>
+                        <StyledP>{this.props.fahrenheit} <sup>0</sup></StyledP>
+                            <StyledP>{this.props.celcius} <sup>0</sup></StyledP>
                         </InlineEl>
                         <InlineEl>
                             <StyledP>Pollen</StyledP>
