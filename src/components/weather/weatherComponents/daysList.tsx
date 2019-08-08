@@ -22,7 +22,8 @@ export class DaysList extends React.Component<DayListProps,{}>{
                 dayName={el} 
                 key={key} 
                 celcius={this.props.store.temperature.length===0?0:this.props.store.temperature.slice()[key]}
-                fahrenheit={this.props.store.temperature.length===0?0:(this.props.store.temperature.slice()[key]*9/5)+32}/>
+                fahrenheit={this.props.store.temperature.length===0?0:(this.props.store.temperature.slice()[key]*9/5)+32}
+                pollen={this.props.store.pollenCount.length===0?0:this.props.store.pollenCount.slice()[key]}/>
             )}else{
                 return null
             }

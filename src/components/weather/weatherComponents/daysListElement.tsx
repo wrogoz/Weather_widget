@@ -9,6 +9,7 @@ interface DayListItemData {
     dayName:String
     celcius:Number
     fahrenheit:Number
+    pollen:Number
 }
 @observer
 export class DaysListElement extends React.Component<DayListItemData,{}>{
@@ -31,7 +32,7 @@ export class DaysListElement extends React.Component<DayListItemData,{}>{
                         </InlineEl>
                         <InlineEl>
                             <StyledP>Pollen</StyledP>
-                            <StyledP>36</StyledP>
+                            <StyledP>{this.props.pollen}</StyledP>
                         </InlineEl>
                         
                     </StyledDaysList>

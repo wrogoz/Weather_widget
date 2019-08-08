@@ -11,14 +11,14 @@ export class Store {
   
     @observable date:string[] | null=["2019-07-26T00:00:00"]
     @observable temperature:number[] =[];
-    @observable pollen:number[]=[]; 
+    @observable pollenCount:number[]  =[];
 //---------------------------------------------------
     @observable precipitation:number[]  | null=null;
     @observable humidity:number[]  | null=null;
     //windInfo	
     @observable speed:number[]  | null=	null;
     @observable direction:string[] | null=null;
-    @observable pollenCount:number[]  | null=null;
+   
     @observable type:string[]| null=["RainLight"];
     //-------------------------------------------------------------------------/
 }
