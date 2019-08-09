@@ -8,7 +8,7 @@ import RainLight from '../Assets/RainLight.png'
 import Sunny from '../Assets/Sunny.png'
 import RainAndCloudy from '../Assets/RainAndCloudy.png'
 import { observer } from 'mobx-react';
-
+import styled from 'styled-components';
 interface DayListProps{
     store:Store
     
@@ -43,7 +43,7 @@ export class DaysList extends React.Component<DayListProps,{}>{
                 dayName={el} 
                 key={key} 
                 celcius={this.props.store.temperature.length===0?0:this.props.store.temperature.slice()[key]}
-                fahrenheit={this.props.store.temperature.length===0?0:(this.props.store.temperature.slice()[key]*9/5)+32}
+                fahrenheit={this.props.store.temperature.length===0?0:Math.floor(this.props.store.temperature.slice()[key]*9/5)+32}
                 pollen={this.props.store.pollenCount.length===0?0:this.props.store.pollenCount.slice()[key]}
                 icon={this.props.store.type.length===0? <img src={Sunny} alt=""/>:<img src={icon()} alt="" />}/>
             )}else{
@@ -53,10 +53,17 @@ export class DaysList extends React.Component<DayListProps,{}>{
         
         
         return(
-            <List>
+            <ListContainer>
            {daysListItems}
-            </List>
+            </ListContainer>
         )
     }
 }
-
+const ListContainer=styled(List)`
+    @media (min-width: 460px) {
+        
+        height:150px;
+        display:flex;
+        width:100%;
+    };
+`

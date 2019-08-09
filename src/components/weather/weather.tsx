@@ -74,6 +74,7 @@ const WeatherContainer = styled.div`
     width:100%;
     background-color:#fff;
     padding-top:5%;
+    max-width:570px;
 
 `
 const TopBox = styled.div`
@@ -82,6 +83,10 @@ const TopBox = styled.div`
 const CityName = styled.div`
     font-size:36px;
     cursor: pointer;
+    @media (min-width: 340px) {
+        font-size:40px; 
+    };
+
 
 `
 const Date = styled.div`

@@ -9,8 +9,8 @@ export class Store {
     @observable city:string = 'Choose city';
     @observable actualDate:any = moment().format('YYYY-MM-DD');
     @observable dateToDisplay:string=moment().format('dddd, MMMM Do').toString();
-    @observable days:any = ["Monday","Tuesday", "wendesday","Thursday","Friday"]
-    @observable temperature:number[] =[];
+    @observable days:any = ["Monday","Tuesday", "Wendesday","Thursday","Friday"]
+    @observable temperature:number[]  =[];
     @observable pollenCount:number[]  =[];
     @observable type:string[]=[];
    //windInfo	

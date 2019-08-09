@@ -72,10 +72,10 @@ const Styledsup = styled.sup`
    
 `
 const SelectedDateCol2 = styled.div`
-    margin:top:10%;
+   
     width:50%;
     margin:0 auto;
-    
+    padding-left:14px;
 `
 
 const Col2Data = styled.ul`
