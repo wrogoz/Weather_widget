@@ -56,9 +56,9 @@ export class DaysList extends React.Component<DayListProps, {}> {
             }
             icon={
               this.props.store.type.length === 0 ? (
-                <img src={Sunny} alt={Sunny.toString()} />
+                <img src={Sunny} alt="img" />
               ) : (
-                <img src={icon()} alt={icon().toString()} />
+                <img src={icon()} alt="img" />
               )
             }
           />
