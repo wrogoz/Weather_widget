@@ -22,7 +22,6 @@ export class Weather extends React.Component<WeatherProps, {}> {
   componentDidMount() {
     // Api GET city list
 
-    
     axios.get('https://dev-weather-api.azurewebsites.net/api/city')
          .then((res: any) => {
             this.props.store.cityNames = res.data;
