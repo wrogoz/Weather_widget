@@ -15,7 +15,7 @@
 
 # Features:
 
-- Select city from list and display weather forecast
+- Display weather forecast for selected city
 
 # How to start:
 First:
