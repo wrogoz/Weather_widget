@@ -11,7 +11,7 @@
 - React Material Web Components
 - Webpack
 - Moments
-- 
+
 
 # Features:
 
