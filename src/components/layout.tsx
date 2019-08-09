@@ -24,9 +24,10 @@ export class Layout extends React.Component<LayoutProps,{}>{
 const MainPage=styled.div`
   height:100vh;
   width:100vw;
-  background-color:skyblue;
   font-family:'Roboto', sans-serif;
-  
+  @media (min-width: 460px) {
+    width:98vw; 
+};
 `
 
 

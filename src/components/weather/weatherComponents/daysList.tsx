@@ -40,17 +40,16 @@ export class DaysList extends React.Component<DayListProps,{}>{
                   
             return (
                 <DaysListElement 
-                dayName={el} 
-                key={key} 
-                celcius={this.props.store.temperature.length===0?0:this.props.store.temperature.slice()[key]}
-                fahrenheit={this.props.store.temperature.length===0?0:Math.floor(this.props.store.temperature.slice()[key]*9/5)+32}
-                pollen={this.props.store.pollenCount.length===0?0:this.props.store.pollenCount.slice()[key]}
-                icon={this.props.store.type.length===0? <img src={Sunny} alt=""/>:<img src={icon()} alt="" />}/>
+                    dayName={el} 
+                    key={key} 
+                    celcius={this.props.store.temperature.length===0?0:this.props.store.temperature.slice()[key]}
+                    fahrenheit={this.props.store.temperature.length===0?0:Math.floor(this.props.store.temperature.slice()[key]*9/5)+32}
+                    pollen={this.props.store.pollenCount.length===0?0:this.props.store.pollenCount.slice()[key]}
+                    icon={this.props.store.type.length===0? <img src={Sunny} alt=""/>:<img src={icon()} alt="" />}/>
             )}else{
                 return null
             }
         });
-        
         
         return(
             <ListContainer>
@@ -61,7 +60,6 @@ export class DaysList extends React.Component<DayListProps,{}>{
 }
 const ListContainer=styled(List)`
     @media (min-width: 460px) {
-        
         height:150px;
         display:flex;
         width:100%;

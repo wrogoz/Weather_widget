@@ -1,6 +1,7 @@
 import * as React from 'react';
 import styled from 'styled-components';
 import {SimpleMenu,MenuItem} from '@rmwc/menu';
+import {Elevation} from '@rmwc/elevation'
 import {DaysList} from './weatherComponents/daysList';
 import {DateChoiceComp} from './weatherComponents/dateChoiceComp';
 import store,{Store} from '../../store/store';
@@ -53,7 +54,7 @@ export class Weather extends React.Component<WeatherProps,{}>{
     render(){
        
         return(
-            <WeatherContainer>
+            <WeatherContainer z={2}>
                 <TopBox>
                         <SimpleMenu handle={<CityName>{this.props.store.city}</CityName>}>
                             {this.props.store.menuItems}
@@ -68,7 +69,7 @@ export class Weather extends React.Component<WeatherProps,{}>{
     }
 }
 
-const WeatherContainer = styled.div`
+const WeatherContainer = styled(Elevation)`
     display:flex;
     flex-direction:column;
     width:100%;
