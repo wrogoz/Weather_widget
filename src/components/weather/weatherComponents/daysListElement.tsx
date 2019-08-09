@@ -1,8 +1,6 @@
 import * as React from 'react';
 import styled from 'styled-components';
 import {ListDivider} from '@rmwc/list'
-
-
 import { observer } from 'mobx-react';
 
 
@@ -11,8 +9,9 @@ interface DayListItemData {
     celcius:Number
     fahrenheit:Number
     pollen:Number
-    icon:any
+    icon:Object
 }
+
 @observer
 export class DaysListElement extends React.Component<DayListItemData,{}>{
     render(){
@@ -20,6 +19,7 @@ export class DaysListElement extends React.Component<DayListItemData,{}>{
                 <>
                     <ListDivider/>
                     <StyledDaysList >
+
                         <InlineEl>
                             {this.props.dayName} 
                         </InlineEl>
@@ -29,7 +29,7 @@ export class DaysListElement extends React.Component<DayListItemData,{}>{
                         </InlineEl>
 
                         <TempInfo>
-                        <TempInfoData>{this.props.fahrenheit} <sup>0</sup></TempInfoData>
+                            <TempInfoData>{this.props.fahrenheit} <sup>0</sup></TempInfoData>
                             <TempInfoData>{this.props.celcius} <sup>0</sup></TempInfoData>
                         </TempInfo>
                         <PollenInfo>
@@ -41,15 +41,16 @@ export class DaysListElement extends React.Component<DayListItemData,{}>{
                     <ListDivider/>
                 </>
         )
-    }
-}
+    };
+};
+
+
 const StyledDaysList = styled.li`
     display:flex;
     align-items:center;
     height:10vh;
     padding-left:15px;
     @media (min-width: 460px) {
-      
         height:100%;
         flex-direction:column;
         align-items:center;
@@ -65,13 +66,12 @@ const InlineEl = styled.div`
     font-size:14px;
     text-align:center;
     @media (min-width: 460px) {
-      display:flex;
-      flex-direction:column;
-      width:auto;
-      line-height: 10px;
+        display:flex;
+        flex-direction:column;
+        width:auto;
+        line-height: 10px;
     };
 `
-
 
 const PollenInfo = styled.div`
     display:inline-block;
@@ -92,16 +92,16 @@ const PollenInfoData = styled.p`
     color:#aaa;
     &:first-of-type{
         color:#666;
-    }
+        }
     @media (min-width: 390px) {
         margin:0 5px;
-
     };
     @media (min-width: 460px) {
         font-size:10px;
         margin:0 2px;
     };
 `
+
 const TempInfo = styled.div`
     display:inline-block;
     width:25%;
@@ -109,8 +109,6 @@ const TempInfo = styled.div`
     @media (min-width: 415px) {
         display:flex;
         justify-content:center;
-        
-        
     };
 `
 const TempInfoData = styled.p`
@@ -127,6 +125,5 @@ const TempInfoData = styled.p`
         display:flex;
         justify-content:center;
         line-height:4px;
-        
     };
 `

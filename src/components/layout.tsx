@@ -2,32 +2,28 @@ import React from 'react';
 import styled from 'styled-components';
 import {observer} from 'mobx-react';
 import {Weather} from './weather/weather';
-import store,{Store} from '../store/store';
+import store, {Store} from '../store/store';
 
-
-interface LayoutProps{
-  store:Store
+interface LayoutProps {
+  store: Store;
 }
 
 @observer
-export class Layout extends React.Component<LayoutProps,{}>{
-  
-  render(){
-    return(
+export class Layout extends React.Component<LayoutProps, {}> {
+  render() {
+    return (
       <MainPage>
-        <Weather store={store}/>
+        <Weather store={store} />
       </MainPage>
-    )
+    );
   }
 }
 
-const MainPage=styled.div`
-  height:100vh;
-  width:100vw;
-  font-family:'Roboto', sans-serif;
+const MainPage = styled.div`
+  height: 100vh;
+  width: 100vw;
+  font-family: 'Roboto', sans-serif;
   @media (min-width: 460px) {
-    width:98vw; 
-};
-`
-
-
+    width: 98vw;
+  }
+`;
