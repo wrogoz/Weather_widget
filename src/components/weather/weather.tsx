@@ -48,9 +48,9 @@ export class Weather extends React.Component<WeatherProps, {}> {
     return (
       <WeatherContainer z={2}>
         <TopBox>
-          <StyledSimpleMenu handle={<CityName>{this.props.store.city}</CityName>}>
+          <SimpleMenu handle={<CityName>{this.props.store.city}</CityName>}>
             {this.props.store.cityList}
-          </StyledSimpleMenu>
+          </SimpleMenu>
           <Date>{this.props.store.dateToDisplay}</Date>
           <Date>Overcast</Date>
         </TopBox>
@@ -60,10 +60,7 @@ export class Weather extends React.Component<WeatherProps, {}> {
     );
   }
 }
-const StyledSimpleMenu = styled(SimpleMenu)`
-  margin:50px 0 0 10px;
-  
-  `
+
 const WeatherContainer = styled(Elevation)`
   display: flex;
   flex-direction: column;
