@@ -10,6 +10,8 @@ import axios from 'axios';
 
 
 
+
+
 interface WeatherProps {
     store:Store
 }
@@ -56,7 +58,7 @@ export class Weather extends React.Component<WeatherProps,{}>{
                         <SimpleMenu handle={<CityName>{this.props.store.city}</CityName>}>
                             {this.props.store.menuItems}
                         </SimpleMenu>
-                    <Date>{this.props.store.date}</Date>
+                    <Date>{this.props.store.dateToDisplay}</Date>
                     <Date>Overcast</Date>
                 </TopBox>
                 <DateChoiceComp store={store}/>

@@ -1,7 +1,8 @@
 import * as React from 'react';
 import styled from 'styled-components';
 import {ListDivider} from '@rmwc/list'
-import cloudy from '../Assets/cloudy.png'
+
+
 import { observer } from 'mobx-react';
 
 
@@ -10,6 +11,7 @@ interface DayListItemData {
     celcius:Number
     fahrenheit:Number
     pollen:Number
+    icon:any
 }
 @observer
 export class DaysListElement extends React.Component<DayListItemData,{}>{
@@ -23,7 +25,7 @@ export class DaysListElement extends React.Component<DayListItemData,{}>{
                         </InlineEl>
                         
                         <InlineEl>
-                        <img src={cloudy} alt="cloudy"/>
+                        {this.props.icon}
                         </InlineEl>
 
                         <InlineEl>

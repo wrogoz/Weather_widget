@@ -1,6 +1,6 @@
 import * as React from 'react';
 import styled from 'styled-components';
-import cloudy from '../Assets/cloudy.png';
+import Cloudy from '../Assets/Cloudy.png';
 import {Store } from '../../../store/store';
 import {observer} from 'mobx-react';
 
@@ -16,7 +16,7 @@ export class DateChoiceComp extends React.Component<DateChoiceProps,{}>{
             <SelectedDate>
 
                 <SelectedDateCol1>
-                    <Col1Img src={cloudy} alt="cloudy"/>
+                    <Col1Img src={Cloudy} alt="cloudy"/>
                     <Col1Temp>
                         <Col1TempVal>{this.props.store.api[0].temperature}</Col1TempVal>
                         <Styledsup><sup>o</sup>F</Styledsup>
